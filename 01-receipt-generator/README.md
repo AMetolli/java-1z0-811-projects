@@ -9,15 +9,21 @@ This project demonstrates Object-Oriented Design (OOD) principles in Java by bui
 ## Architecture & Design Decisions
 
 ### 1. Data-Driven Modeling (`TaxCategory` & `Product`)
+* **`TaxCategory` (Enum):** Encapsulates tax logic and rates rather than using hardcoded floating-point constants. Provides type safety, prevents invalid inputs, and makes tax calculations extensible.
+* **`Product` (Class):** Pure domain entity representing item state with private fields and getter methods (`name`, `price`, `taxCategory`).
 
-* **Decision:** Encapsulate tax logic inside a dedicated `TaxCategory` enum rather than using hardcoded floating-point constants.
-* **Rationale:** Tax rules (e.g., standard vs. reduced rate) represent fixed domain concepts. Enums provide type safety, prevent invalid inputs, and make tax calculations extensible.
+### 2. Data Access & Catalog (`ProductCatalog`)
+* **`ProductCatalog` (Class):** Acts as a data repository layer (simulating a database or persistent storage in-memory). It manages and provides access to the available store products.
 
-### 2. Separation of Concerns
+### 3. Separation of Concerns
+* **`ReceiptService`:** Encapsulates business logic (calculating subtotals, VAT amounts, and totals).
+* **`ReceiptApp`:** CLI entry point responsible purely for user input and console rendering.
 
-* **`Product`**: Pure domain entity representing item state (Name, Price, Tax Category).
-* **`ReceiptService`**: Encapsulates business logic (calculating subtotals, VAT amounts, and totals).
-* **`ReceiptApp`**: CLI entry point responsible purely for user input and console rendering.
+### 4. Product Catalog / Sample Data
+The application provides an initial set of hardcoded sample products via the catalog:
+* **Apple:** 0.99 € (`REDUCED`)
+* **Milk:** 1.49 € (`REDUCED`)
+* **Cola:** 2.49 € (`STANDARD`)
 
 ## Concepts & Exam Topics Practiced (Java Foundations)
 
@@ -27,13 +33,14 @@ This project demonstrates Object-Oriented Design (OOD) principles in Java by bui
 
 ## Project Structure
 
-```
+```text
 01-receipt-generator/
 ├── README.md
 └── src/
     └── receipt/
         ├── TaxCategory.java
         ├── Product.java
+        ├── ProductCatalog.java
         ├── ReceiptService.java
         └── ReceiptApp.java
 ```
@@ -61,3 +68,6 @@ This project demonstrates Object-Oriented Design (OOD) principles in Java by bui
    java -cp bin receipt.ReceiptApp
    
 ```
+
+## Development Workflow
+* This project adheres to Conventional Commits to track architectural milestones clearly.
