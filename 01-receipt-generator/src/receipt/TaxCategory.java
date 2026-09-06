@@ -1,18 +1,16 @@
+package receipt;
+
 public enum TaxCategory {
-    STANDARD(0.19),
-    REDUCED(0.07); 
+    REDUCED(0.07),   
+    STANDARD(0.19);  
 
+    private final double rate;
 
-    private final double taxRate; 
-
-    private TaxCategory(double taxRate) {
-    this.taxRate = taxRate;
+    TaxCategory(double rate) {
+        this.rate = rate;
     }
 
-    public double getTaxRate() {
-    return taxRate;
-
+    public double getRate() {
+        return rate;
     }
-
-} 
-
+}
