@@ -8,28 +8,58 @@ This project demonstrates Object-Oriented Design (OOD) principles in Java by bui
 
 ## Architecture & Design Decisions
 
-### 1. Data-Driven Modeling (`TaxCategory` & `Product`)
-* **`TaxCategory` (Enum):** Encapsulates tax logic and rates rather than using hardcoded floating-point constants. Provides type safety, prevents invalid inputs, and makes tax calculations extensible.
-* **`Product` (Class):** Pure domain entity representing item state with private fields and getter methods (`name`, `price`, `taxCategory`).
+1. **Data-Driven Modeling (TaxCategory & Product)**
+   - **TaxCategory (Enum):** Encapsulates tax logic and rates (7%, 19%) rather than using hardcoded floating-point constants. Provides type safety and extensibility.
+   - **Product (Class):** Pure domain entity representing item state with private fields and getter methods.
 
-### 2. Data Access & Catalog (`ProductCatalog`)
-* **`ProductCatalog` (Class):** Acts as a data repository layer (simulating a database or persistent storage in-memory). It manages and provides access to the available store products.
+2. **Data Access & Catalog (ProductCatalog)**
+   - **ProductCatalog (Class):** Acts as an in-memory data repository layer managing available store products.
 
-### 3. Separation of Concerns
-* **`ReceiptService`:** Encapsulates business logic (calculating subtotals, VAT amounts, and totals).
-* **`ReceiptApp`:** CLI entry point responsible purely for user input and console rendering.
+3. **Separation of Concerns & Services**
+   - **ReceiptItem (Class):** Represents a cart position combining a product and its quantity (`qtyInput`).
+   - **ReceiptService (Class):** Encapsulates business logic (calculating subtotals, VAT amounts, and itemized totals).
+   - **ReceiptApp (Class):** CLI entry point responsible purely for user input via `Scanner` and console rendering.
 
-### 4. Product Catalog / Sample Data
-The application provides an initial set of hardcoded sample products via the catalog:
-* **Apple:** 0.99 € (`REDUCED`)
-* **Milk:** 1.49 € (`REDUCED`)
-* **Cola:** 2.49 € (`STANDARD`)
+4. **Product Catalog / Sample Data**
+   - Apple: 0.99 € (REDUCED / 7%)
+   - Milk: 1.49 € (REDUCED / 7%)
+   - Cola: 2.49 € (STANDARD / 19%)
 
+## Program Flow
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant ReceiptApp
+    participant ProductCatalog
+    participant ReceiptService
+    participant ReceiptItem
+
+    User->>ReceiptApp: Starts application
+    ReceiptApp->>ProductCatalog: Loads available products
+    ProductCatalog-->>ReceiptApp: Product list
+    
+    loop Add items to cart
+        User->>ReceiptApp: Selects product & quantity (qtyInput)
+        ReceiptApp->>ReceiptService: addItem(product, quantity)
+        ReceiptService->>ReceiptItem: Creates cart item
+    end
+
+    User->>ReceiptApp: Finishes input / Prints receipt
+    ReceiptApp->>ReceiptService: printReceipt()
+    ReceiptService->>ReceiptItem: Calculates line totals & VAT splits
+    ReceiptService-->>User: Outputs formatted receipt
+```
 ## Concepts & Exam Topics Practiced (Java Foundations)
 
-* **Type Safety & Enums:** Working with fixed value sets and constants.
-* **Encapsulation:** Private field scope with getter methods.
-* **Arithmetic & Primitive Types:** Precise calculation handling with Java primitive types.
+Type Safety & Enums: Working with fixed value sets and constants.
+
+Encapsulation: Private field scope with getter methods.
+
+Arithmetic & Primitive Types: Precise calculation handling with Java primitive types.
+
+Collections: Managing items via List and ArrayList.
 
 ## Project Structure
 
@@ -38,11 +68,12 @@ The application provides an initial set of hardcoded sample products via the cat
 ├── README.md
 └── src/
     └── receipt/
-        ├── TaxCategory.java
-        ├── Product.java
-        ├── ProductCatalog.java
-        ├── ReceiptService.java
-        └── ReceiptApp.java
+        ├── TaxCategory.java  # Enum for tax rates (7%, 19%)
+        ├── Product.java # Data model for items
+        ├── ProductCatalog.java  # Predefined product database
+        ├── ReceiptItem.java     # Cart item (product + quantity)
+        ├── ReceiptService.java  # Business logic & receipt formatting
+        └── ReceiptApp.java      # CLI entry point (Main)
 ```
 
 ## Setup & Execution
