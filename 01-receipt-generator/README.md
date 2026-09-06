@@ -68,8 +68,8 @@ Collections: Managing items via List and ArrayList.
 ├── README.md
 └── src/
     └── receipt/
-        ├── TaxCategory.java  # Enum for tax rates (7%, 19%)
-        ├── Product.java # Data model for items
+        ├── TaxCategory.java     # Enum for tax rates (7%, 19%)
+        ├── Product.java         # Data model for items
         ├── ProductCatalog.java  # Predefined product database
         ├── ReceiptItem.java     # Cart item (product + quantity)
         ├── ReceiptService.java  # Business logic & receipt formatting
