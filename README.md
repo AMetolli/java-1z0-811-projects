@@ -11,7 +11,7 @@ Hands-on Java projects built to master core programming concepts and software en
 
 | Project | Description | Core Concepts Covered | Status |
 | :--- | :--- | :--- | :---: |
-| **01 Receipt Generator** | CLI-based receipt & tax calculator | Primitive types, Operators, String formatting | 🚧 In Progress |
+| **01 Receipt Generator** | CLI-based receipt & tax calculator | Primitive types, Operators, String formatting | ✅ Completed |
 | **02 Bank Account** | Account management logic | OOP, Encapsulation, Methods | ⏳ Planned |
 | **03 Task Manager** | Task tracking application | Control Flow, Arrays/ArrayLists | ⏳ Planned |
 
