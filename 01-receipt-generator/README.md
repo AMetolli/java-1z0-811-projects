@@ -53,13 +53,13 @@ sequenceDiagram
 ```
 ## Concepts & Exam Topics Practiced (Java Foundations)
 
-*Type Safety & Enums: Working with fixed value sets and constants.
+* Type Safety & Enums: Working with fixed value sets and constants.
 
-*Encapsulation: Private field scope with getter methods.
+* Encapsulation: Private field scope with getter methods.
 
-*Arithmetic & Primitive Types: Precise calculation handling with Java primitive types.
+* Arithmetic & Primitive Types: Precise calculation handling with Java primitive types.
 
-*Collections: Managing items via List and ArrayList.
+* Collections: Managing items via List and ArrayList.
 
 ## Project Structure
 
