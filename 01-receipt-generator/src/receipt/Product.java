@@ -1,3 +1,5 @@
+package receipt;
+
 public class Product {
     private String name;
     private double price;
@@ -19,5 +21,9 @@ public class Product {
 
     public TaxCategory getTaxCategory() {
     return taxCategory;
+    }
+
+    public double getTaxRate() {
+        return taxCategory.getRate();
     }
 }
