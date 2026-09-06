@@ -29,7 +29,7 @@ Make sure you are in the **root directory of the project** (where the `src` fold
 
 ```bash
 # Step 1: Compile the source files
-javac -d bin src/receipt/*.java
+javac -d bin src/<package_name>/*.java
 
 # Step 2: Run the compiled application
-java -cp bin receipt.ReceiptApp
+java -cp bin <package_name>.<MainClassName>
