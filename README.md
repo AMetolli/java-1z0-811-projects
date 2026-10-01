@@ -8,10 +8,6 @@ Hands-on Java projects built to master core programming concepts and software en
 ## Scope & Approach
 The projects in this repository go beyond the 1Z0-811 certification. While the exam focuses on core syntax and basic concepts, these projects are built to reflect real-world software engineering standards. The underlying philosophy is simple: intentionally practicing slightly above exam requirements creates the technical depth needed to handle edge cases reliably and pass real-world challenges with confidence.
 
-- **Modular Architecture:** Clear separation of concerns by splitting data models, business logic, and the user interface.
-- **Defensive Design:** Proper input validation and error handling to prevent unexpected crashes.
-- **Clean Git Workflow:** Using atomic commits and conventional commit standards.
-
 ---
 
 ## 🚀 Projects Overview
@@ -19,8 +15,7 @@ The projects in this repository go beyond the 1Z0-811 certification. While the e
 | Project | Description | Core Concepts Covered | Status |
 | :--- | :--- | :--- | :---: |
 | **01 Receipt Generator** | CLI-based receipt & tax calculator | Primitive types, Operators, String formatting | ✅ Completed |
-| **02 Bank Account** | Account management logic | OOP, Encapsulation, Methods | ⏳ Planned |
-| **03 Task Manager** | Task tracking application | Control Flow, Arrays/ArrayLists | ⏳ Planned |
+| **02 Bank Account** | Account management logic | OOP, Encapsulation, Methods | ✅ Completed |
 
 ---
 
